@@ -271,5 +271,46 @@
       color: red;
       cursor: pointer;
     }
-  
+ /*class info*/
+ .card-info-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-info-container .img-fluid {
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.card-info-container .attributes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-info-container .attribute {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.card-info-container .fav-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card-info-container .fav-button img {
+    margin-right: 10px;
+}
+
+.card-info-container .col-md-6 {
+    padding-bottom: 20px;
+}
     
