@@ -1,3 +1,275 @@
-/* 
-    General Styles
-*/
+/* General Styles */
+.background {
+    background-image: url('https://hips.hearstapps.com/hmg-prod/images/estrella-de-la-muerte-2-1540977640.jpeg?resize=2048:*');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+   
+    /* Card Styles */
+    .card-wrap {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .card {
+    flex: 0 0 auto;
+    width: 300px; /* Ancho deseado para cada tarjeta */
+    margin-right: 20px;
+    scroll-snap-align: start;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  .card-body {
+    background-color: #000;
+     color: #fbff00;
+  }
+  .card__info {
+    padding: 20px;
+  }
+  
+  /* Estilos de Favoritos */
+  .favorites-card {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  .remove-favorite {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+  }
+    
+  /* Navbar Styles */
+  .dark {
+    background-color: black;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Button Styles */
+  .learn-more-button, .fav-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.4s, background-color 0.4s;
+  }
+  
+  .learn-more-button:hover, .fav-button:hover, .fav-button.active {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  .fav-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: color 0.4s, background-color 0.4s;
+  }
+  
+  .fav-button:hover {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .fav-button.active {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  /* Splash Screen Styles */
+  .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-out;
+    z-index: 9999;
+  }
+  
+  .splash-logo {
+    width: 150px; 
+    height: auto;
+  }
+  
+  .splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .lightsaber-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .lightsaber {
+    position: relative;
+    height: 4px;
+    width: 0;
+    background-color: #fff;
+    transition: width 1s ease-out;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+  }
+  
+  .lightsaber.active {
+    width: 200px;
+  }
+  
+  .lightsaber:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  /* Footer Styles */
+  .star-wars-footer {
+    background-color: #000;
+    color: #ffffff;
+    font-family: 'Star Jedi', sans-serif;
+    padding: 2rem 0;
+  }
+  
+  .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .footer-logo img {
+      width: 150px;
+    }
+    
+    .footer-nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      margin-right: 1rem;
+    }
+  
+    .footer-nav li {
+      margin-right: 1rem;
+    }
+    
+    
+    .footer-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-nav a:hover {
+      color: #ff0000;
+    }
+    
+    .social-icons a {
+      color: #ffffff;
+      font-size: 1.5rem;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: #ff0000;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+    } 
+  /* favorites */
+    .favorites-card {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      width: 250px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      border-radius: 10px;
+      padding: 15px;
+      z-index: 1000;
+    }
+    
+    .favorites-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .close-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .favorites-card h3 {
+      margin-top: 0;
+    }
+    
+    .favorites-card ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+    
+    .favorites-card li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .remove-favorite {
+      background-color: transparent;
+      border: none;
+      color: red;
+      cursor: pointer;
+    }
+  
+    
