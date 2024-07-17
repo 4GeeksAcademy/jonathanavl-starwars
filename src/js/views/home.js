@@ -7,15 +7,12 @@ export const Home = () => {
     <div>
       <div className="container">
         <h1 className="text-center mb-4">People</h1>
-        <div className="overlay"></div>
         <Card type="people" />
 
         <h1 className="text-center mb-4 mt-5">Planets</h1>
-        <div className="overlay"></div>
         <Card type="planets" />
 
         <h1 className="text-center mb-4 mt-5">Vehicles</h1>
-        <div className="overlay"></div>
         <Card type="vehicles" />
       </div>
     </div>

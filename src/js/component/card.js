@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 import { Link } from 'react-router-dom';
 import { Context } from "../store/appContext";
 import "../../styles/index.css";
@@ -7,6 +7,7 @@ import soldado from "../../img/soldado.png";
 
 export const Card = ({ type }) => {
   const { store, actions } = useContext(Context);
+  const cardContainerRef = useRef(null);
 
   useEffect(() => {
     if (type === "people" && store.people.length === 0) {
@@ -45,37 +46,69 @@ export const Card = ({ type }) => {
         return null;
     }
   };
+  const isFavorite = (item) => {
+    // Check if item is in favorites based on its type
+    switch (type) {
+      case 'people':
+        return store.favorites.some(fav => fav.type === 'people' && fav.uid === item.uid);
+      case 'planets':
+        return store.favorites.some(fav => fav.type === 'planets' && fav.uid === item.uid);
+      case 'vehicles':
+        return store.favorites.some(fav => fav.type === 'vehicles' && fav.uid === item.uid);
+      default:
+        return false;
+    }
+  };
+  const toggleFavorite = (item) => {
+    // Toggle favorite status based on current status
+    if (isFavorite(item)) {
+      actions.removeFavorite(item);
+    } else {
+      actions.addFavorite(item);
+    }
+  };
+
+  const scrollLeft = () => {
+    cardContainerRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    cardContainerRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+  };
 
   return (
-    <div className="card-wrap">
-      {items.map((item) => {
-        const isFavorite = store.favorites.some(fav => fav.uid === item.uid);
+    <div className="carousel-container">
+      <button className="scroll-button left" onClick={scrollLeft}>&lt;</button>
+      <div className="card-wrap" ref={cardContainerRef}>
+        {items.map((item) => {
+          const isFavorite = store.favorites.some(fav => fav.uid === item.uid);
 
-        return (
-          <div className="card" key={item.uid}>
-            <img
+          return (
+            <div className="card" key={item.uid}>
+              <img
                 src={getImageUrl(item)}
                 className="card-img-top"
                 alt={item.name}
                 onError={(e) => { e.target.onerror = null; e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg" }}
               />
-            <div className="card-body">
-              <h2 className="card-title text-warning">{item.name}</h2>
-              <p className="text-light">{getAttributes(item)}</p>
-              <Link to={`/${type}/${item.uid}`}>
-                <button className="learn-more-button me-3">Learn more</button>
-              </Link>
-              <button
-                className={`fav-button ${isFavorite ? 'active' : ''}`}
-                onClick={() => isFavorite ? actions.removeFavorite(item) : actions.addFavorite(item)}
-              >
-                <img src={soldado} width="20" height="auto" alt="Favorite" />
-                {isFavorite ? "" : ""}
-              </button>
+              <div className="card-body">
+                <h2 className="card-title text-warning">{item.name}</h2>
+                <p className="text-light">{getAttributes(item)}</p>
+                <Link to={`/${type}/${item.uid}`}>
+                  <button className="learn-more-button me-3">Learn more</button>
+                </Link>
+                <button
+                  className={`fav-button ${isFavorite ? 'active' : ''}`}
+                  onClick={() => isFavorite ? actions.removeFavorite(item) : actions.addFavorite(item)}
+                >
+                  <img src={soldado} width="20" height="auto" alt="Favorite" />
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      <button className="scroll-button right" onClick={scrollRight}>&gt;</button>
     </div>
   );
 };

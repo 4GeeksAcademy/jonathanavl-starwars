@@ -1,33 +1,25 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
-import "../../styles/index.css";
+import React, { useContext } from 'react';
+import { Context } from '../store/appContext';
+import '../../styles/index.css';
+import soldado from "../../img/soldado.png";
 
-export const Favorites = ({ onClose }) => {
+export const Favorites = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="favorites-card">
-      <div className="favorites-header">
-        <h3>Favorites</h3>
-        <button className="close-button" onClick={onClose}>X</button>
-      </div>
-      <ul>
-        {store.favorites.length > 0 ? (
-          store.favorites.map((item) => (
-            <li key={item.uid}>
-              {item.name}
-              <button 
-                className="remove-favorite"
-                onClick={() => actions.removeFavorite(item)}
-              >
-                X
-              </button>
-            </li>
-          ))
-        ) : (
-          <li>No favorites selected.</li>
-        )}
-      </ul>
+    <div className="favorites-container">
+      <h4>Favorites</h4>
+      {store.favorites.length > 0 ? (
+        store.favorites.map((item, index) => (
+          <div key={index} className="favorites-item">
+            <img src={soldado} alt={item.name} />
+            <span>{item.name}</span>
+            <button onClick={() => actions.removeFavorite(item)}>X</button>
+          </div>
+        ))
+      ) : (
+        <p>No favorites added yet</p>
+      )}
     </div>
   );
 };

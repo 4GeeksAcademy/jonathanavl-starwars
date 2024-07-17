@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/index.css";
 import soldado from "../../img/soldado.png";
+import { Context } from "../store/appContext";
 
 export const Cardinfo = () => {
     const { uid, type } = useParams();
+    const { actions, store } = useContext(Context);
     const [item, setItem] = useState(null);
     const [description, setDescription] = useState("Loading...");
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -38,6 +40,24 @@ export const Cardinfo = () => {
         fetchItem();
     }, [uid, type]);
 
+    const addToFavorites = () => {
+        const itemToAdd = {
+            ...item,
+            uid: uid,
+            type: type
+        };
+        actions.addFavorite(itemToAdd);
+    };
+
+    const removeFromFavorites = () => {
+        const itemToRemove = {
+            ...item,
+            uid: uid,
+            type: type
+        };
+        actions.removeFavorite(itemToRemove);
+    };
+
     if (!item) {
         return <div>Loading...</div>;
     }
@@ -58,6 +78,9 @@ export const Cardinfo = () => {
     };
 
     const imageUrl = `https://starwars-visualguide.com/assets/img/${getImageCategory(type)}/${uid}.jpg`;
+
+    // Determine if the current item is in favorites
+    const isInFavorites = store.favorites.some(fav => fav.uid === item.uid);
 
     return (
         <div className="container mt-3 card-info-container">
@@ -87,10 +110,6 @@ export const Cardinfo = () => {
                         <div className="attributes-container">
                             {renderDetails()}
                         </div>
-                        <button className="fav-button mt-3 mb-4 align-self-end">
-                            <img src={soldado} width="20" height="auto" alt="Favorite" />
-                            Add to Favorites
-                        </button>
                     </div>
                 </div>
             </div>

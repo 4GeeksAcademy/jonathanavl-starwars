@@ -1,4 +1,4 @@
-/* General Styles */
+/* Estilos generales */
 .background {
     background-image: url('https://hips.hearstapps.com/hmg-prod/images/estrella-de-la-muerte-2-1540977640.jpeg?resize=2048:*');
     background-size: cover;
@@ -11,61 +11,20 @@
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
-  }
-   
-    /* Card Styles */
-    .card-wrap {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .card {
-    flex: 0 0 auto;
-    width: 300px; /* Ancho deseado para cada tarjeta */
-    margin-right: 20px;
-    scroll-snap-align: start;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  }
-  .card-body {
-    background-color: #000;
-     color: #fbff00;
-  }
-  .card__info {
-    padding: 20px;
-  }
-  
-  /* Estilos de Favoritos */
-  .favorites-card {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 1000;
-  }
-  
-  .remove-favorite {
-    background-color: transparent;
-    border: none;
-    color: #f00;
-    cursor: pointer;
-  }
-    
-  /* Navbar Styles */
-  .dark {
+}
+
+/* Estilos de la barra de navegación */
+.navbar.dark {
     background-color: black;
     height: 100%;
     position: sticky;
     top: 0;
     z-index: 1000;
-  }
-  
-  /* Button Styles */
-  .learn-more-button, .fav-button {
+}
+
+/* Estilos de los botones */
+.learn-more-button,
+.fav-button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -78,38 +37,17 @@
     text-decoration: none;
     overflow: hidden;
     transition: color 0.4s, background-color 0.4s;
-  }
-  
-  .learn-more-button:hover, .fav-button:hover, .fav-button.active {
+}
+
+.learn-more-button:hover,
+.fav-button:hover,
+.fav-button.active {
     color: #000000;
     background-color: #ffffff;
-  }
-  .fav-button {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: transparent;
-    color: #fff;
-    font-size: 16px;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    text-transform: uppercase;
-    text-decoration: none;
-    overflow: hidden;
-    transition: color 0.4s, background-color 0.4s;
-  }
-  
-  .fav-button:hover {
-    color: #000000;
-    background-color: #ffffff;
-  }
-  
-  .fav-button.active {
-    color: #000000;
-    background-color: #ffffff;
-  }
-  /* Splash Screen Styles */
-  .splash-screen {
+}
+
+/* Estilos de pantalla de bienvenida */
+.splash-screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -121,38 +59,39 @@
     justify-content: center;
     transition: opacity 1s ease-out;
     z-index: 9999;
-  }
-  
-  .splash-logo {
-    width: 150px; 
+}
+
+.splash-logo {
+    width: 150px;
     height: auto;
-  }
-  
-  .splash-screen.hidden {
+}
+
+.splash-screen.hidden {
     opacity: 0;
     pointer-events: none;
-  }
-  .lightsaber-container {
+}
+
+.lightsaber-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-  }
-  
-  .lightsaber {
+}
+
+.lightsaber {
     position: relative;
     height: 4px;
     width: 0;
     background-color: #fff;
     transition: width 1s ease-out;
     box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0ff, 0 0 70px #0ff, 0 0 80px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
-  }
-  
-  .lightsaber.active {
+}
+
+.lightsaber.active {
     width: 200px;
-  }
-  
-  .lightsaber:before {
+}
+
+.lightsaber:before {
     content: '';
     position: absolute;
     left: -20px;
@@ -162,117 +101,100 @@
     height: 10px;
     background-color: #333;
     border-radius: 5px 0 0 5px;
-  }
-  
-  /* Footer Styles */
-  .star-wars-footer {
+}
+
+/* Estilos de pie de página */
+.star-wars-footer {
     background-color: #000;
     color: #ffffff;
     font-family: 'Star Jedi', sans-serif;
     padding: 2rem 0;
-  }
-  
-  .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1500px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    
-    .footer-logo img {
-      width: 150px;
-    }
-    
-    .footer-nav ul {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      margin-right: 1rem;
-    }
-  
-    .footer-nav li {
-      margin-right: 1rem;
-    }
-    
-    
-    .footer-nav a {
-      color: #ffffff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-nav a:hover {
-      color: #ff0000;
-    }
-    
-    .social-icons a {
-      color: #ffffff;
-      font-size: 1.5rem;
-      margin-left: 1rem;
-      transition: color 0.3s ease;
-    }
-    
-    .social-icons a:hover {
-      color: #ff0000;
-    }
-    
-    .footer-bottom {
-      text-align: center;
-    } 
-  /* favorites */
-    .favorites-card {
-      position: fixed;
-      top: 70px;
-      right: 20px;
-      width: 250px;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: white;
-      border-radius: 10px;
-      padding: 15px;
-      z-index: 1000;
-    }
-    
-    .favorites-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .close-button {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    
-    .favorites-card h3 {
-      margin-top: 0;
-    }
-    
-    .favorites-card ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 10px;
-    }
-    
-    .favorites-card li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    
-    .remove-favorite {
-      background-color: transparent;
-      border: none;
-      color: red;
-      cursor: pointer;
-    }
- /*class info*/
- .card-info-container {
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer-logo img {
+    width: 150px;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin-right: 1rem;
+}
+
+.footer-nav li {
+    margin-right: 1rem;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ff0000;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ff0000;
+}
+
+/* Estilos de tarjeta */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-wrap {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.card-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 300px;
+    margin: 0 10px;
+    scroll-snap-align: start;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.card-body {
+    background-color: #000;
+    color: #fbff00;
+}
+
+/* Información de la tarjeta */
+.card-info-container {
     background-color: #000;
     color: #fff;
     padding: 20px;
@@ -313,4 +235,71 @@
 .card-info-container .col-md-6 {
     padding-bottom: 20px;
 }
-    
+
+/* Favoritos */
+.favorites-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.favorites-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.favorites-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.favorites-item button {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    cursor: pointer;
+}
+
+.favorites-item button:hover {
+    color: red;
+}
+
+.favorites-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+/* Scroll Button Styles */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.scroll-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
